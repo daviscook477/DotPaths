@@ -124,11 +124,9 @@ public class SplineGenerator {
 			float t;
 			boolean doneT = false;
 			while (!doneT) {
-				System.out.println("imstuck");
 				t = random.nextFloat();
 				boolean good = true;
 				for (int j = 0; j < i; j++) {
-					System.out.println(splitPos[j] + " " + t);
 					if (Math.abs(t - splitPos[j]) < minSeparation) {
 						good = false;
 					}

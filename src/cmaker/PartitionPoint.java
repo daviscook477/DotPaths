@@ -43,7 +43,6 @@ public class PartitionPoint implements IDrawable, IDraggable {
 		float dx = x2 - cursorX;
 		float dy = y2 - cursorY;
 		if ((dx * dx + dy * dy) <= CIRCLE_RADIUS * CIRCLE_RADIUS) {
-			System.out.println("in");
 			return true;
 		}
 		return false;

@@ -80,7 +80,6 @@ public class InteractiveSpline implements IDrawable {
 		cPoints.add(index, cp);
 		DirectionPoint dp = new DirectionPoint(this, cp);
 		dPoints.add(index, dp);
-		System.out.println("index: " + index);
 		if (points.size() == 1) {
 			PartitionPoint pPoint = new PartitionPoint(this, p);
 			pPoints.add(pPoint);
