@@ -145,6 +145,7 @@ public class Application {
 	
 	private void buildUI(JFrame jf, JPanel jp, ArrayList<InteractiveSpline> splines) {	
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setTitle("Curves W/ Dots Maker");
 		jp.setPreferredSize(APP_DIMENSIONS);
 		jf.add(jp, BorderLayout.CENTER);
 		
