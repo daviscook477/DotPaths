@@ -8,7 +8,7 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
-public class InteractiveSpline implements IDrawable, IDraggableSet {
+public class InteractiveSpline implements IDrawable {
 	
 	// Don't modify these using anything other than the methods in the Spline Object
 	public ArrayList<Point> points; // The points that make up the spline currently
@@ -18,7 +18,15 @@ public class InteractiveSpline implements IDrawable, IDraggableSet {
 	public ArrayList<ExpansionPoint> ePoints; // The clickable point for adding a new control point
 	public PointSet pSet;
 	
-	public boolean showDots = false;
+	private boolean visibility = false;
+	
+	public boolean getVisibility() {
+		return visibility;
+	}
+	
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
+	}
 	
 	public InteractiveSpline() {
 		this.points = new ArrayList<Point>();
@@ -59,7 +67,6 @@ public class InteractiveSpline implements IDrawable, IDraggableSet {
 			ePoints.add(ep0);
 			// TODO: might need to update partitions here
 		}
-		colors = Application.getColorScheme((points.size() - 1) * PARTITIONS_PER_CURVE + 1);
 	}
 	
 	/**
@@ -98,7 +105,6 @@ public class InteractiveSpline implements IDrawable, IDraggableSet {
 			updatePartitions(cp);
 			updatePartitions(cPoints.get(index + 1));
 		}
-		colors = Application.getColorScheme((points.size() - 1) * PARTITIONS_PER_CURVE + 1);
 	}
 	
 	
@@ -184,7 +190,6 @@ public class InteractiveSpline implements IDrawable, IDraggableSet {
 		
 	}
 
-	@Override
 	public ArrayList<IDraggable> getDraggables() {
 		ArrayList<IDraggable> drags = new ArrayList<IDraggable>(cPoints.size() + dPoints.size());
 		drags.addAll(cPoints);
@@ -203,11 +208,9 @@ public class InteractiveSpline implements IDrawable, IDraggableSet {
 	public static final float CIRCLE_SIZE = 5; // 5px radius circles
 	public static final float ARROW_SCALE = 0.1f; // arrows are 5 times smaller than derivative
 
-	private Color[] colors;
-	
 	@Override
 	public void draw(Graphics2D g2D) {
-		if (showDots) {
+		if (visibility) {
 			for (SimpleCircle sc : pSet.circles) {
 				g2D.setColor(sc.color);
 				g2D.fill(new Ellipse2D.Float(sc.x - sc.r, sc.y - sc.r, 2 * sc.r, 2 * sc.r));
@@ -255,12 +258,6 @@ public class InteractiveSpline implements IDrawable, IDraggableSet {
 			int colorIndex = 0;
 			g2D.setColor(PartitionPoint.PURPLE);
 			for (PartitionPoint current : pPoints) {
-				//g2D.setColor(colors[colorIndex]);
-				
-				//int[] xPoints = new int[] {(int) last.x2, (int) (2*last.p.x - last.x2), (int) (2*current.p.x - current.x2), (int) current.x2};
-				//int[] yPoints = new int[] {(int) last.y2, (int) (2*last.p.y - last.y2), (int) (2*current.p.y - current.y2), (int) current.y2};
-				//g2D.fillPolygon(xPoints, yPoints, 4);
-				
 				g2D.setStroke(new BasicStroke(3.0f));
 				g2D.draw(new Line2D.Double(last.x2, last.y2, current.x2, current.y2));
 				g2D.draw(new Line2D.Double(2*last.p.x - last.x2, 2*last.p.y - last.y2, 2*current.p.x - current.x2, 2*current.p.y - current.y2));

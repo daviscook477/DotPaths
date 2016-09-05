@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
+// wtf does this do
 public class SplineGenerator {
 
 	public static final Random random = new Random();
