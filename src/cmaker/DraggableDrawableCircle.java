@@ -5,12 +5,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 
-public class Circle implements IDraggable, IDrawable {
+public class DraggableDrawableCircle implements IDraggable, IDrawable {
 
 	public float x, y, r;
 	public Color color;
 	
-	public Circle(float x, float y, float r, Color color) {
+	public DraggableDrawableCircle(float x, float y, float r, Color color) {
 		this.x = x;
 		this.y = y;
 		this.r = r;

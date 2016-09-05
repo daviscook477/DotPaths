@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
-public class DirectionPoint extends Circle {
+public class DirectionPoint extends DraggableDrawableCircle {
 
 	private InteractiveSpline sp;
 	private ControlPoint cp;

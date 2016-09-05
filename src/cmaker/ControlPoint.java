@@ -2,7 +2,7 @@ package cmaker;
 
 import java.awt.Color;
 
-public class ControlPoint extends Circle {
+public class ControlPoint extends DraggableDrawableCircle {
 
 	private InteractiveSpline sp;
 	private Point p;
