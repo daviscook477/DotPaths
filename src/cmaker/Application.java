@@ -23,7 +23,7 @@ public class Application {
 		Application a = new Application();
 	}
 	
-	public static final int APP_WIDTH = 1280, APP_HEIGHT = 720;
+	public static final int APP_WIDTH = 1920, APP_HEIGHT = 1080;
 	public static final Dimension APP_DIMENSIONS = new Dimension(APP_WIDTH, APP_HEIGHT);
 
 	private ArrayList<InteractiveSpline> splines;
@@ -239,7 +239,7 @@ public class Application {
 		// set up example spline
 		InteractiveSpline example = SplineGenerator.buildSpline(APP_DIMENSIONS.width, APP_DIMENSIONS.height, 1.0f, 4, true);
 		splines.add(example);
-		
+	
 		// start the application logic
 		new Thread(appLogic).start();
 		
