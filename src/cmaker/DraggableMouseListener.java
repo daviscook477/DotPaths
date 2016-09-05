@@ -4,6 +4,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+/**
+ * Mouse Listener designed to handle dragging splines around a screen
+ * @author Davis
+ *
+ */
 public class DraggableMouseListener implements MouseListener {
 
 	private ArrayList<InteractiveSpline> splines;
