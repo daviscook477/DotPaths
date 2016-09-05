@@ -1,5 +1,10 @@
 package cmaker;
 
+/**
+ * Represents a spline defined by points with derivatives
+ * @author Davis
+ *
+ */
 public class Curve {
 
 	// Note: changing the points requires that recalculate be called

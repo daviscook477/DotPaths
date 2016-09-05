@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * A circle that can be dragged around and has a specific drawing method
+ * @author Davis
+ *
+ */
 public class DraggableDrawableCircle implements IDraggable, IDrawable {
 
 	public float x, y, r;
